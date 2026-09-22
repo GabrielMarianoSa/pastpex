@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estoque | Lu Baby</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="topo">
+        <div class="topo-conteudo">
+            <div>
+                <p class="etiqueta">LU BABY</p>
+                <h1>Controle de estoque</h1>
+                <p class="subtitulo">Organize seus produtos de um jeito simples.</p>
+            </div>
+            <div class="status"><span></span> Dados salvos neste navegador</div>
+        </div>
+    </header>
+
+    <main class="conteudo">
+        <section class="resumo" aria-label="Resumo do estoque">
+            <article class="indicador"><span class="indicador-rotulo">Produtos cadastrados</span><strong id="totalProdutos">0</strong></article>
+            <article class="indicador"><span class="indicador-rotulo">Unidades em estoque</span><strong id="totalUnidades">0</strong></article>
+            <article class="indicador alerta"><span class="indicador-rotulo">Estoque baixo</span><strong id="totalBaixo">0</strong></article>
+        </section>
+
+        <section class="painel cadastro">
+            <div class="secao-titulo">
+                <div><p class="etiqueta">NOVO ITEM</p><h2>Cadastrar produto</h2></div>
+                <span class="numero-passo">01</span>
+            </div>
+            <form id="formProduto" class="formulario">
+                <label>Produto<input id="produto" type="text" placeholder="Ex.: Body Infantil" required></label>
+                <label>Categoria<input id="categoria" type="text" placeholder="Ex.: Roupas" required></label>
+                <label>Preço (R$)<input id="preco" type="number" min="0" step="0.01" placeholder="39,90" required></label>
+                <label>Quantidade<input id="quantidade" type="number" min="0" step="1" placeholder="10" required></label>
+                <button class="botao principal" type="submit">+ Cadastrar produto</button>
+            </form>
+        </section>
+
+        <section class="painel lista">
+            <div class="secao-titulo lista-cabecalho">
+                <div><p class="etiqueta">INVENTARIO</p><h2>Produtos em estoque</h2></div>
+                <label class="pesquisa"><span aria-hidden="true">⌕</span><input id="pesquisa" type="search" placeholder="Pesquisar produto ou categoria" aria-label="Pesquisar produto ou categoria"></label>
+            </div>
+            <div class="tabela-wrap">
+                <table>
+                    <thead><tr><th>Produto</th><th>Categoria</th><th>Preço</th><th>Quantidade</th><th>Ações</th></tr></thead>
+                    <tbody id="listaProdutos"></tbody>
+                </table>
+                <div id="estadoVazio" class="estado-vazio"><strong>Nenhum produto cadastrado</strong><span>Use o formulário acima para começar.</span></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>Lu Baby &middot; Sistema de controle de estoque</footer>
+    <script src="script.js"></script>
+</body>
+</html>
